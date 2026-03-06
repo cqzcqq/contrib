@@ -30,3 +30,9 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+
+# tcp-retrans-exporter build artefacts
+tcp-retrans-exporter/tcpretrans.bpf.o
+tcp-retrans-exporter/tcp-retrans-exporter
+tcp-retrans-exporter/exporter
+tcp-retrans-exporter/bpf/vmlinux.h
