@@ -344,9 +344,9 @@ retransProg, err := bpfModule.GetProgram("handle_retransmit")
 if err != nil {
 log.Fatalf("get program handle_retransmit: %v", err)
 }
-retransLink, err := retransProg.AttachTracepoint("tcp", "tcp_retransmit_skb")
+retransLink, err := retransProg.AttachGeneric()
 if err != nil {
-log.Fatalf("attach tracepoint tcp/tcp_retransmit_skb: %v", err)
+log.Fatalf("attach tp_btf tcp_retransmit_skb: %v", err)
 }
 defer retransLink.Destroy()
 

@@ -71,7 +71,7 @@ static __always_inline int fill_flow_key(struct sock *sk, struct flow_key *key)
     if (family == AF_INET) {
         __u32 saddr = BPF_CORE_READ(sk, __sk_common.skc_rcv_saddr);
         __u32 daddr = BPF_CORE_READ(sk, __sk_common.skc_daddr);
-        /* store IPv4 addresses in the last 4 bytes (big-endian as-is from kernel) */
+        /* store IPv4 addresses in the last 4 bytes; network byte order (big-endian) as-is from kernel */
         __builtin_memcpy(key->saddr + 12, &saddr, sizeof(saddr));
         __builtin_memcpy(key->daddr + 12, &daddr, sizeof(daddr));
     } else {
